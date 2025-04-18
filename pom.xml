@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.nextwork.app</groupId>
   <artifactId>nextwork-web-project</artifactId>
@@ -7,15 +7,41 @@
   <version>1.0-SNAPSHOT</version>
   <name>nextwork-web-project Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
+  <!-- Dependencies Section -->
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+	  <!-- JUnit for unit testing -->
+	  <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>4.13.2/version>
+		  <scope>test</scope>
+	  </dependency>
+
+	  <!-- HtmlUnit for headless browser testing -->
+	  <dependency>
+		  <groupId>net.sourceforge.htmlunit</groupId>
+		  <artifactId>htmlunitu</artifactId>
+		  <version>2.70.0</version>
+		  <scope>test</scope>
+	  </dependency>
   </dependencies>
+
+  <!-- Build Section -->
   <build>
-    <finalName>nextwork-web-project</finalName>
+	  <finalName>nextwork-web-project</finalName>
+
+	  <!-- Tomcat7 Maven Plugin to run the server for testing -->
+	  <plugins>
+		  <plugin>
+			  <groupId>org.apache.tomcat.maven</groupId>
+			  <artifactId>tomcat7-maven-plugin</artifactId>
+			  <version>2.2</version>
+			  <configuration>
+				  <path>/</path>
+				  <port>8080</port>
+		          </configuration>
+	          </plugin>
+          </plugins>
   </build>
 </project>
