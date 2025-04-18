@@ -9,7 +9,7 @@ phases:
       - echo Initializing environment
       - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain nextwork --domain-owner 682033500730 --region eu-west-2 --query authorizationToken --output text`
       - echo Pre-build: compiling without tests
-      - mvn -s settings.xml clean compilt -DskipTests
+      - mvn -s settings.xml clean compile -DskipTests
 
   build:
     commands:
