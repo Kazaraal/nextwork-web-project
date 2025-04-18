@@ -8,10 +8,16 @@ phases:
     commands:
       - echo Initializing environment
       - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain nextwork --domain-owner 682033500730 --region eu-west-2 --query authorizationToken --output text`
+      - echo Pre-build: compiling without tests
+      - mvn -s settings.xml clean compilt -DskipTests
 
   build:
     commands:
       - echo Build started on `date`
+      - echo Starting local server for JSP testing
+      - nohup mvn -s settings.xml tomcat7:run &
+      - sleep 15 # wait for server to start
+      - echo Running unit tests
       - mvn -s settings.xml compile
   post_build:
     commands:
