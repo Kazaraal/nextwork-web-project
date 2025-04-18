@@ -21,7 +21,7 @@
 	  <!-- HtmlUnit for headless browser testing -->
 	  <dependency>
 		  <groupId>net.sourceforge.htmlunit</groupId>
-		  <artifactId>htmlunitu</artifactId>
+		  <artifactId>htmlunit</artifactId>
 		  <version>2.70.0</version>
 		  <scope>test</scope>
 	  </dependency>
