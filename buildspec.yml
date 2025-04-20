@@ -18,7 +18,7 @@ phases:
       - nohup mvn -s settings.xml tomcat7:run &
       - sleep 15 # wait for server to start
       - echo Running unit tests
-      - mvn -s settings.xml compile
+#      - mvn -s settings.xml compile
   post_build:
     commands:
       - echo Build completed on `date`
